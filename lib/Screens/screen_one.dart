@@ -28,6 +28,7 @@ class _ScreenOneState extends State<ScreenOne> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
         body: Responsive(
           desktop: body(),
@@ -293,17 +294,17 @@ Widget body() {
                             height: 200,
                           ),
                           Column(children: [
-                            TopicWidgets(
+                            const TopicWidgets(
                               text: 'About us ',
                             ),
-                            Divider(
+                            const Divider(
                               color: Colors.black,
                               height: 5,
                               thickness: 3,
-                              indent: 460,
-                              endIndent: 460,
+                              indent: 600,
+                              endIndent: 600,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Center(
@@ -318,7 +319,7 @@ Widget body() {
                                       fontWeight: FontWeight.normal,
                                       color: Color(0xff787878))),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 40,
                             ),
                           ]),
@@ -434,26 +435,62 @@ Widget body() {
                             color: Colors.black,
                             height: 5,
                             thickness: 3,
-                            indent: 460,
-                            endIndent: 460,
+                            indent: 600,
+                            endIndent: 600,
                           ),
                           const SizedBox(
-                            height: 20,
+                            height: 10,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 20),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Image.asset(
-                                  "assets/bluerec.png",
-                                ),
-                                // Image.asset(
-                                //   "assets/yellowrec89.png",
-                                // ),
-                              ],
+                          Stack(children: [
+                            Expanded(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Image.asset(
+                                    "assets/bluerec.png",
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
+                            Expanded(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Image.asset(
+                                    "assets/yellowrec.png",
+                                  ),
+                                  const SizedBox(
+                                    width: 40,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ]),
+                          Stack(children: [
+                            Expanded(
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 160),
+                                    child: Container(
+                                      child: Image.asset(
+                                        "assets/circleO.png",
+                                      ),
+                                    ),
+                                  ),
+                                  // Container(
+                                  //   child: Image.asset(
+                                  //     "assets/Ellipsepurplesmall.png",
+                                  //     width: 100,
+                                  //     height: 100,
+                                  //   ),
+                                  // ),
+                                ],
+                              ),
+                            )
+                          ]),
                           Row(
                             children: [
                               Padding(
@@ -465,147 +502,241 @@ Widget body() {
                               const SizedBox(
                                 width: 20,
                               ),
-                              Container(
-                                height: 600,
-                                width: 550,
-                                child: Image.asset(
-                                  "assets/groupellipse.png",
-                                ),
+                              Expanded(
+                                child: Row(children: [
+                                  Column(children: [
+                                    Container(
+                                      height: 600,
+                                      width: 550,
+                                      child: Image.asset(
+                                        "assets/groupellipse.png",
+                                      ),
+                                    ),
+                                  ]),
+                                  // Stack(children: [
+                                  //   Expanded(
+                                  //     child: Row(
+                                  //         mainAxisAlignment:
+                                  //             MainAxisAlignment.start,
+                                  //         children: [
+                                  //           Column(
+                                  //             mainAxisAlignment:
+                                  //                 MainAxisAlignment.start,
+                                  //             children: [
+                                  //               Text(
+                                  //                   "We are here to help \n"
+                                  //                   "you with",
+                                  //                   style: GoogleFonts.inter(
+                                  //                       color:
+                                  //                           Color(0xff040335),
+                                  //                       fontSize: 30,
+                                  //                       fontWeight:
+                                  //                           FontWeight.bold)),
+                                  //               SizedBox(height: 30),
+                                  //               // Text.rich(
+                                  //               //   TextSpan(
+                                  //               //     children: [
+                                  //               //       WidgetSpan(
+                                  //               //           child: Image.asset(
+                                  //               //         "assets/cloudimg.png",
+                                  //               //       )),
+                                  //               //       TextSpan(
+                                  //               //         text:
+                                  //               //             'Software development',
+                                  //               //         style: GoogleFonts
+                                  //               //             .urbanist(
+                                  //               //           fontSize: 30,
+                                  //               //           color:
+                                  //               //               Color(0xff040335),
+                                  //               //         ),
+                                  //               //       ),
+                                  //               //     ],
+                                  //               //   ),
+                                  //               // ),
+                                  //               Row(children: [
+                                  //                 Image.asset(
+                                  //                   "assets/cloudimg.png",
+                                  //                 ),
+                                  //                 SizedBox(
+                                  //                   width: 10,
+                                  //                 ),
+                                  //                 Column(
+                                  //                   mainAxisAlignment:
+                                  //                       MainAxisAlignment.start,
+                                  //                   children: [
+                                  //                     Text(
+                                  //                         "Software Development",
+                                  //                         textAlign:
+                                  //                             TextAlign.start,
+                                  //                         style:
+                                  //                             GoogleFonts.inter(
+                                  //                           color: const Color(
+                                  //                               0xff040335),
+                                  //                           fontSize: 20,
+                                  //                         )),
+                                  //                     Text(
+                                  //                         "IOS, Android, Website development\n"
+                                  //                         " with in the cost of one application",
+                                  //                         textAlign:
+                                  //                             TextAlign.start,
+                                  //                         style:
+                                  //                             GoogleFonts.inter(
+                                  //                           color: Color(
+                                  //                               0xff040335),
+                                  //                           fontSize: 20,
+                                  //                         )),
+                                  //                   ],
+                                  //                 )
+                                  //               ])
+                                  //             ],
+                                  //           ),
+                                  //         ]),
+                                  //   ),
+                                  // ]),
+                                  Stack(children: [
+                                    Expanded(
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "We are here to help \n"
+                                            "you with",
+                                            textAlign: TextAlign.start,
+                                            style: GoogleFonts.fredoka(
+                                                color: const Color(0xff040335),
+                                                fontSize: 40),
+                                          ),
+                                          const SizedBox(
+                                            height: 27,
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              Image.asset(
+                                                "assets/cloudimg.png",
+                                              ),
+                                              Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    "Software Cloud",
+                                                    textAlign: TextAlign.start,
+                                                    style: GoogleFonts.fredoka(
+                                                        color:
+                                                            Color(0xff040335),
+                                                        fontSize: 14),
+                                                  ),
+                                                  Text(
+                                                      "IOS, Android, Website development wit \n"
+                                                      "in the cost of one application",
+                                                      style:
+                                                          GoogleFonts.fredoka(
+                                                              fontSize: 15,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .normal,
+                                                              color: Color(
+                                                                  0xff787878)))
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                          const SizedBox(
+                                            height: 30,
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              Image.asset(
+                                                "assets/cloudimg.png",
+                                              ),
+                                              Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    "UI & UX Design",
+                                                    textAlign: TextAlign.start,
+                                                    style: GoogleFonts.fredoka(
+                                                        color:
+                                                            Color(0xff040335),
+                                                        fontSize: 14),
+                                                  ),
+                                                  Text(
+                                                      "Making meaningfull appealing \n"
+                                                      "interface for software",
+                                                      style:
+                                                          GoogleFonts.fredoka(
+                                                              fontSize: 15,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .normal,
+                                                              color: Color(
+                                                                  0xff787878)))
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                          const SizedBox(
+                                            height: 30,
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              Image.asset(
+                                                "assets/cloudimg.png",
+                                              ),
+                                              Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    "UI & UX Design",
+                                                    textAlign: TextAlign.start,
+                                                    style: GoogleFonts.fredoka(
+                                                        color:
+                                                            Color(0xff040335),
+                                                        fontSize: 14),
+                                                  ),
+                                                  Text(
+                                                      "Making meaningfull appealing \n"
+                                                      "interface for software",
+                                                      style:
+                                                          GoogleFonts.fredoka(
+                                                              fontSize: 15,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .normal,
+                                                              color: Color(
+                                                                  0xff787878)))
+                                                ],
+                                              ),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ]),
+                                ]),
                               ),
-                              Stack(children: [
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "We are here to help \n"
-                                      "you with",
-                                      textAlign: TextAlign.start,
-                                      style: GoogleFonts.fredoka(
-                                          color: Color(0xff040335),
-                                          fontSize: 40),
-                                    ),
-                                    SizedBox(
-                                      height: 27,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Image.asset(
-                                          "assets/cloudimg.png",
-                                        ),
-                                        Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              "assets/cloudimg.png",
-                                              textAlign: TextAlign.start,
-                                              style: GoogleFonts.fredoka(
-                                                  color: Color(0xff040335),
-                                                  fontSize: 14),
-                                            ),
-                                            Text(
-                                                "IOS, Android, Website development wit \n"
-                                                "in the cost of one application",
-                                                style: GoogleFonts.fredoka(
-                                                    fontSize: 15,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                    color: Color(0xff787878)))
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 30,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Image.asset(
-                                          "assets/cloudimg.png",
-                                        ),
-                                        Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              "Software Solution Consulting",
-                                              textAlign: TextAlign.start,
-                                              style: GoogleFonts.fredoka(
-                                                  color: Color(0xff040335),
-                                                  fontSize: 14),
-                                            ),
-                                            Text(
-                                                "Mananging technological content \n"
-                                                "& error solving",
-                                                style: GoogleFonts.fredoka(
-                                                    fontSize: 15,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                    color: Color(0xff787878)))
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 30,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Image.asset(
-                                          "assets/cloudimg.png",
-                                        ),
-                                        Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              "UI & UX Design",
-                                              textAlign: TextAlign.start,
-                                              style: GoogleFonts.fredoka(
-                                                  color: Color(0xff040335),
-                                                  fontSize: 14),
-                                            ),
-                                            Text(
-                                                "Making meaningfull appealing \n"
-                                                "interface for software",
-                                                style: GoogleFonts.fredoka(
-                                                    fontSize: 15,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                    color: Color(0xff787878)))
-                                          ],
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              ]),
                             ],
                           ),
                           Stack(
                             children: const [
                               TopicWidgets(text: "Our Protfolio"),
-                              SizedBox(height: 40),
-                              Divider(
-                                color: Colors.black,
-                                height: 5,
-                                thickness: 3,
-                                indent: 460,
-                                endIndent: 460,
-                              ),
                               // Row(
                               //   mainAxisAlignment: MainAxisAlignment.center,
                               //   children: [
@@ -625,89 +756,284 @@ Widget body() {
                               // )
                             ],
                           ),
-                          const SizedBox(height: 30),
-                          Stack(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(40),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                          const Divider(
+                            color: Colors.black,
+                            height: 5,
+                            thickness: 3,
+                            indent: 600,
+                            endIndent: 600,
+                          ),
+                          const SizedBox(height: 50),
+                          // Stack(
+                          //   children: [
+                          //     Padding(
+                          //       padding: const EdgeInsets.all(40),
+                          //       child: Row(
+                          //         mainAxisAlignment: MainAxisAlignment.start,
+                          //         crossAxisAlignment: CrossAxisAlignment.start,
+                          //         children: [
+                          //           Column(children: [
+                          //             Container(
+                          //               color: Color(0xffD9D9D9),
+                          //               height: 357,
+                          //               width: 170,
+                          //             ),
+                          //           ]),
+                          //           const SizedBox(
+                          //             width: 10,
+                          //           ),
+                          //           Column(children: [
+                          //             Container(
+                          //               color: Color(0xffD9D9D9),
+                          //               height: 150,
+                          //               width: 170,
+                          //             ),
+                          //             const SizedBox(
+                          //               height: 10,
+                          //             ),
+                          //             Container(
+                          //               color: Color(0xffD9D9D9),
+                          //               height: 200,
+                          //               width: 168,
+                          //             ),
+                          //           ]),
+                          //           const SizedBox(
+                          //             width: 10,
+                          //           ),
+                          //           Column(children: [
+                          //             Container(
+                          //               color: Color(0xffD9D9D9),
+                          //               height: 150,
+                          //               width: 170,
+                          //             ),
+                          //             const SizedBox(
+                          //               height: 10,
+                          //             ),
+                          //             Container(
+                          //               color: Color(0xffD9D9D9),
+                          //               height: 200,
+                          //               width: 168,
+                          //             ),
+                          //           ]),
+                          //           // const SizedBox(
+                          //           //   height: 30,
+                          //           // )
+                          //         ],
+                          //       ),
+                          //     ),
+                          //     Padding(
+                          //       padding:
+                          //           const EdgeInsets.only(top: 405, left: 40),
+                          //       child: Row(
+                          //         children: [
+                          //           Container(
+                          //             color: const Color(0xffD9D9D9),
+                          //             height: 150,
+                          //             width: 528,
+                          //           )
+                          //         ],
+                          //       ),
+                          //     )
+                          //   ],
+                          // ),
+                          Stack(children: [
+                            Expanded(
+                              child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Column(children: [
-                                      Container(
-                                        color: Color(0xffD9D9D9),
-                                        height: 357,
-                                        width: 170,
-                                      ),
-                                    ]),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    Column(children: [
-                                      Container(
-                                        color: Color(0xffD9D9D9),
-                                        height: 150,
-                                        width: 170,
-                                      ),
-                                      const SizedBox(
-                                        height: 10,
-                                      ),
-                                      Container(
-                                        color: Color(0xffD9D9D9),
-                                        height: 200,
-                                        width: 168,
-                                      ),
-                                    ]),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    Column(children: [
-                                      Container(
-                                        color: Color(0xffD9D9D9),
-                                        height: 150,
-                                        width: 170,
-                                      ),
-                                      const SizedBox(
-                                        height: 10,
-                                      ),
-                                      Container(
-                                        color: Color(0xffD9D9D9),
-                                        height: 200,
-                                        width: 168,
-                                      ),
-                                    ]),
-                                    // const SizedBox(
-                                    //   height: 30,
-                                    // )
-                                  ],
-                                ),
-                              ),
-                              Padding(
+                                    Image.asset('assets/collagegrid.png',
+                                        width: 400),
+                                  ]),
+                            ),
+                            Expanded(
+                              child: Padding(
                                 padding:
-                                    const EdgeInsets.only(top: 405, left: 40),
+                                    const EdgeInsets.only(top: 20, right: 145),
                                 child: Row(
-                                  children: [
-                                    Container(
-                                      color: const Color(0xffD9D9D9),
-                                      height: 150,
-                                      width: 528,
-                                    )
-                                  ],
-                                ),
-                              )
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Image.asset("assets/piccollage.png",
+                                          width: 360),
+                                    ]),
+                              ),
+                            )
+                          ]),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          Stack(
+                            children: const [
+                              TopicWidgets(text: "Workshop & Training"),
+                              // Row(
+                              //   mainAxisAlignment: MainAxisAlignment.center,
+                              //   children: [
+                              //     Image.asset(
+                              //       "assets/circleO.png",
+                              //     ),
+                              //     SizedBox(
+                              //       width: 70,
+                              //     ),
+                              //     Container(
+                              //       child: Image.asset(
+                              //         "assets/Rectangle 141.png",
+                              //       ),
+                              //     ),
+                              //     Image.asset("assets/Rectangle 142.png")
+                              //   ],
+                              // )
                             ],
                           ),
-                          Stack(children: [])
+                          const Divider(
+                            color: Colors.black,
+                            height: 5,
+                            thickness: 3,
+                            indent: 600,
+                            endIndent: 600,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Stack(children: [
+                            Expanded(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Image.asset(
+                                    "assets/bluerec.png",
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Image.asset(
+                                    "assets/yellowrec.png",
+                                  ),
+                                  const SizedBox(
+                                    width: 40,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 300),
+                                    child: Container(
+                                      child: Image.asset(
+                                        "assets/circleO.png",
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset(
+                                      "assets/bottomellips.png",
+                                    ),
+                                    
+                                  ]),
+                            ),
+                          ]),
+                          const SizedBox(
+                            height: 40,
+                          ),
+                          Stack(children: [
+                            Column(
+                              children: [
+                                Container(
+                                    height: 470,
+                                    width: double.infinity,
+                                    decoration: const BoxDecoration(
+                                      gradient: LinearGradient(
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                        colors: [
+                                          Color(0xff820F43),
+                                          Color(0xff02043A),
+                                        ],
+                                      ),
+                                    )),
+                              ],
+                            ),
+                          ])
                         ]),
                   ),
-                ),
+                )
               ],
             ),
           ]),
         ]));
   });
 }
+//
+// class OurServicesWidget extends StatefulWidget {
+//   final String texttopic;
+//   final String text2;
+//
+//   OurServicesWidget({
+//     required this.texttopic,
+//     required this.text2,
+//   });
+//
+//   @override
+//   State<OurServicesWidget> createState() => _OurServicesWidgetState();
+// }
+//
+// class _OurServicesWidgetState extends State<OurServicesWidget> {
+//   int _count = 0;
+//
+//   List<String> _listImages = [
+//     "assets/cloudimg.png",
+//     "assets/cloudimg.png",
+//     "assets/cloudimg.png",
+//   ];
+//
+//   void _addImages() {
+//     setState(() {
+//       _listImages.add(_listImages[_count % 3]);
+//       ++_count;
+//     });
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Row(
+//       mainAxisAlignment: MainAxisAlignment.start,
+//       children: [
+//         Image.asset(
+//           _listImages[3],
+//         ),
+//         Column(
+//           mainAxisAlignment: MainAxisAlignment.start,
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: [
+//             Text(
+//               widget.texttopic,
+//               textAlign: TextAlign.start,
+//               style:
+//                   GoogleFonts.fredoka(color: Color(0xff040335), fontSize: 14),
+//             ),
+//             Text(widget.text2,
+//                 style: GoogleFonts.fredoka(
+//                     fontSize: 15,
+//                     fontWeight: FontWeight.normal,
+//                     color: Color(0xff787878)))
+//           ],
+//         ),
+//       ],
+//     );
+//   }
+// }
 
 //           BackdropFilter(
 //             filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
